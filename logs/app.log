@@ -1,0 +1,26 @@
+2024-08-03 17:46:24,740 INFO:log_namespace.MailRead Test gmail utils
+2024-08-03 17:47:09,086 INFO:log_namespace.MailRead Test gmail utils
+2024-08-03 17:51:50,486 INFO:log_namespace.MailRead Test gmail utils
+2024-08-03 22:27:06,162 INFO:log_namespace.MailRead Email is intiated
+2024-08-03 22:27:19,675 INFO:log_namespace.MailRead Email is intiated
+2024-08-03 22:28:07,203 INFO:log_namespace.MailRead Email is intiated
+2024-08-03 22:29:52,877 INFO:log_namespace.MailRead Email is intiated
+2024-08-03 22:31:47,777 INFO:log_namespace.MailRead Email is intiated
+2024-08-03 22:32:18,696 INFO:log_namespace.MailRead Email is intiated
+2024-08-03 23:33:53,880 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:34:09,683 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:35:15,839 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:37:41,124 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:38:35,200 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:39:49,227 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:40:50,981 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:40:51,979 ERROR:log_namespace.MailRead ''
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 63, in fetch_email
+    print(m[''])
+KeyError: ''
+2024-08-03 23:41:03,673 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:41:26,404 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:54:09,132 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:55:08,904 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-03 23:55:37,476 INFO:log_namespace.MailRead Gmail Account is logged in

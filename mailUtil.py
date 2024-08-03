@@ -1,0 +1,94 @@
+import os
+from Google import Create_Service
+from dotenv import load_dotenv
+import logging
+from datetime import datetime
+from logging.handlers import TimedRotatingFileHandler
+load_dotenv('.env')
+class mailUtil:
+	def __init__(self):
+		############# Client Secret Credentials
+		self.CLIENT_SECRET_FILE = os.getenv("CLIENT_SECRET_FILE")
+		self.API_NAME = os.getenv("API_NAME")
+		self.API_VERSION =  os.getenv("API_VERSION")
+		self.SCOPES = ['https://mail.google.com/']
+		self.service = Create_Service(self.CLIENT_SECRET_FILE,self.API_NAME, self.API_VERSION,self.SCOPES)
+
+
+
+class Logger(object):
+
+
+    def __init__(self, name):
+        name = name.replace('.log','')
+        logger = logging.getLogger('log_namespace.%s' % name)  # log_namespace can be replaced with your namespace
+        logger.setLevel(logging.DEBUG)
+        if not logger.handlers:
+            #date_tag = datetime.now().strftime("%Y-%b-%d")
+            #file_name = os.path.join(os.getcwd() + "/logs/application_"+ str(date_tag) + ".log")
+            logpath = os.getcwd() + "/logs/app.log"
+            if not os.path.exists(logpath):
+                os.mkdir("logs")
+            file_name = os.path.join(os.getcwd() + "/logs/app.log")# usually I keep the LOGGING_DIR defined in some global settings file
+            handler = logging.FileHandler(file_name)
+            formatter = logging.Formatter('%(asctime)s %(levelname)s:%(name)s %(message)s')
+            handler.setFormatter(formatter)
+            handler.setLevel(logging.DEBUG)
+            logger.addHandler(handler) # finally add handler to logger
+        self._logger = logger
+
+    def get(self):
+        return self._logger
+class MailRead(mailUtil):
+    def __init__(self):
+        super().__init__()
+        self.logger = Logger(self.__class__.__name__).get()
+        self.default_mail_count = os.getenv("DEFAULT_MAIL_COUNT")
+        if self.service is not None:
+            self.logger.info("Gmail Account is logged in")
+
+    def __mark_email_as_read(self, message):
+        "mark email as read"
+        self.service.users().messages().modify(userId='me', id=message['id'], body={'removeLabelIds': ['UNREAD']}).execute()
+
+    def __get_header_of_email(self,message):
+        headers_info = {}
+        if "payload" in message:
+            if "headers" in message.get("payload"):
+                headers = message['payload']['headers']
+                if isinstance(headers,list):
+                    for hdr in headers:
+                        if hdr.get("name") == 'From':
+                            headers_info["from"] = hdr.get("value")
+                        elif hdr.get("name") == 'To':
+                            headers_info["to"] = hdr.get("value")
+                        elif hdr.get("name") == 'Subject':
+                            headers_info["subject"] = hdr.get("value")
+                        elif hdr.get("name") == 'Date':
+                            headers_info["date"] = hdr.get("value")
+        return headers_info
+
+    def fetch_email(self):
+        try:
+            print("test")
+            results = self.service.users().messages().list(userId='me', q='in:jobs is:unread').execute()
+            messages = results.get('messages', []);
+            #print(messages)
+            #iterate throught the emails
+            for msg in messages:
+                m = self.service.users().messages().get(userId='me', id=msg['id'], format='full').execute()
+                headers = self.__get_header_of_email(m)
+                self.__mark_email_as_read(msg)
+                print(headers)
+                exit()
+                pass
+                #self.__mark_email_as_read(msg)
+
+                pass
+        except Exception as e:
+            self.logger.exception(str(e))
+        pass
+
+
+
+
