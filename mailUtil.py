@@ -2,23 +2,19 @@ import os
 from Google import Create_Service
 from dotenv import load_dotenv
 import logging
-from datetime import datetime
-from logging.handlers import TimedRotatingFileHandler
+import re,html
+from bs4 import BeautifulSoup
+import base64
 load_dotenv('.env')
 class mailUtil:
 	def __init__(self):
-		############# Client Secret Credentials
 		self.CLIENT_SECRET_FILE = os.getenv("CLIENT_SECRET_FILE")
 		self.API_NAME = os.getenv("API_NAME")
 		self.API_VERSION =  os.getenv("API_VERSION")
 		self.SCOPES = ['https://mail.google.com/']
 		self.service = Create_Service(self.CLIENT_SECRET_FILE,self.API_NAME, self.API_VERSION,self.SCOPES)
 
-
-
 class Logger(object):
-
-
     def __init__(self, name):
         name = name.replace('.log','')
         logger = logging.getLogger('log_namespace.%s' % name)  # log_namespace can be replaced with your namespace
@@ -39,11 +35,28 @@ class Logger(object):
 
     def get(self):
         return self._logger
-class MailRead(mailUtil):
+
+class TextConverter:
+    def __clean_text(self,text):
+        text = html.unescape(text)
+        # Remove leading/trailing whitespace
+        text = text.strip()
+        # Replace multiple newlines and spaces with a single space
+        text = re.sub(r'\s+', ' ', text)
+        return text
+
+    def convert_into_text(self,content):
+        soup = BeautifulSoup(content, 'lxml')
+        # Extract and print the text
+        return self.__clean_text(soup.get_text(separator=' '))
+
+class MailRead(mailUtil,TextConverter):
     def __init__(self):
         super().__init__()
         self.logger = Logger(self.__class__.__name__).get()
         self.default_mail_count = os.getenv("DEFAULT_MAIL_COUNT")
+        self.SAVE_EMAIL_HTML = os.getenv("SAVE_EMAIL_HTML")
+
         if self.service is not None:
             self.logger.info("Gmail Account is logged in")
 
@@ -68,24 +81,69 @@ class MailRead(mailUtil):
                             headers_info["date"] = hdr.get("value")
         return headers_info
 
+    def __get_body_of_email(self,message):
+        text = None
+
+
+
+        if "payload" in message:
+            payload = message.get("payload")
+            if "parts" in payload:
+                parts = payload.get("parts")
+                #print(parts)
+                for p in parts:
+                    body = p.get("body")
+
+                    data = body.get("data")
+                    byte_code = base64.urlsafe_b64decode(data)
+                    text = byte_code.decode("utf-8")
+                    #print(text)
+                    if self.SAVE_EMAIL_HTML:
+                        folder = os.getenv("EMAIL_FOLDER")
+                        file_name = f"{folder}/{message.get('id')}.html"
+                        f = open(file_name, "w")
+                        f.write(text)
+            elif "body" in payload:
+
+                body = payload.get("body")
+                if "data" in body:
+                    data = body.get("data")
+                    byte_code = base64.urlsafe_b64decode(data)
+                    text = byte_code.decode("utf-8")
+                    if self.SAVE_EMAIL_HTML:
+                        folder = os.getenv("EMAIL_FOLDER")
+                        file_name = f"{folder}/{message.get('id')}.html"
+                        f = open(file_name,"w")
+
+            return text
+
+
     def fetch_email(self):
         try:
-            print("test")
+            email_list = []
             results = self.service.users().messages().list(userId='me', q='in:jobs is:unread').execute()
             messages = results.get('messages', []);
             #print(messages)
             #iterate throught the emails
             for msg in messages:
+                email_details = {}
                 m = self.service.users().messages().get(userId='me', id=msg['id'], format='full').execute()
                 headers = self.__get_header_of_email(m)
-                self.__mark_email_as_read(msg)
-                print(headers)
+                body =self.__get_body_of_email(m)
+
+                #exit()
+                #self.__mark_email_as_read(msg)
+                email_details["headers"] = headers
+                email_details["body"] = str(self.convert_into_text(body))
+                email_list.append(email_details)
+                print(email_list)
                 exit()
                 pass
                 #self.__mark_email_as_read(msg)
 
                 pass
         except Exception as e:
+            print(str(e))
             self.logger.exception(str(e))
         pass
 

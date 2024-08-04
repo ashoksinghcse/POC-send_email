@@ -24,3 +24,197 @@ KeyError: ''
 2024-08-03 23:54:09,132 INFO:log_namespace.MailRead Gmail Account is logged in
 2024-08-03 23:55:08,904 INFO:log_namespace.MailRead Gmail Account is logged in
 2024-08-03 23:55:37,476 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 00:18:53,637 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 00:32:00,901 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 00:32:54,249 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 00:33:18,723 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:00:44,306 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:01:11,240 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:01:38,682 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:02:23,646 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:02:48,970 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:05:06,458 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:05:07,455 ERROR:log_namespace.MailRead name 'pritn' is not defined
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 102, in fetch_email
+    self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 70, in __get_body_of_email
+    pritn("sdlfksdlkf")
+NameError: name 'pritn' is not defined
+2024-08-04 01:05:21,611 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:05:54,177 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:08:11,779 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:13:34,267 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:17:01,320 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:17:02,421 ERROR:log_namespace.MailRead argument should be a bytes-like object or ASCII string, not 'NoneType'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 107, in fetch_email
+    self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 77, in __get_body_of_email
+    byte_code = base64.urlsafe_b64decode(data)
+  File "/usr/lib/python3.8/base64.py", line 131, in urlsafe_b64decode
+    s = _bytes_from_decode_data(s)
+  File "/usr/lib/python3.8/base64.py", line 45, in _bytes_from_decode_data
+    raise TypeError("argument should be a bytes-like object or ASCII "
+TypeError: argument should be a bytes-like object or ASCII string, not 'NoneType'
+2024-08-04 01:17:49,835 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:18:23,655 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:18:50,483 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:19:32,055 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:22:53,463 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:23:45,979 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:23:46,814 ERROR:log_namespace.MailRead 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 110, in fetch_email
+    self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 77, in __get_body_of_email
+    body = parts.get("body")
+AttributeError: 'list' object has no attribute 'get'
+2024-08-04 01:24:01,679 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:24:03,085 ERROR:log_namespace.MailRead 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 110, in fetch_email
+    self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 77, in __get_body_of_email
+    body = parts.get("body")
+AttributeError: 'list' object has no attribute 'get'
+2024-08-04 01:24:34,956 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:25:48,990 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:26:52,995 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:26:53,994 ERROR:log_namespace.MailRead 'list' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 108, in fetch_email
+    self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 76, in __get_body_of_email
+    print(p.get("parts").get("body"))
+AttributeError: 'list' object has no attribute 'get'
+2024-08-04 01:27:17,048 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:27:38,663 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:28:48,309 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:29:33,045 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 01:30:14,627 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 13:47:33,752 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 13:50:52,119 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 13:51:01,640 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 13:51:59,294 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 14:37:53,341 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 15:54:04,230 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:16:42,590 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:31:58,538 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:31:59,533 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911bbc8111a5784.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 125, in fetch_email
+    email_details["body"] = self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 105, in __get_body_of_email
+    f = open(file_name,"w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911bbc8111a5784.html'
+2024-08-04 16:34:23,846 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:34:57,318 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:43:22,877 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:43:23,976 ERROR:log_namespace.MailRead object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 121, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 107, in __get_body_of_email
+    return self.convert_into_text(text)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 41, in convert_into_text
+    soup = BeautifulSoup(content, 'lxml')
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/bs4/__init__.py", line 310, in __init__
+    elif len(markup) <= 256 and (
+TypeError: object of type 'NoneType' has no len()
+2024-08-04 16:43:49,917 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:43:50,892 ERROR:log_namespace.MailRead object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 122, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 108, in __get_body_of_email
+    return self.convert_into_text(text)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 41, in convert_into_text
+    soup = BeautifulSoup(content, 'lxml')
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/bs4/__init__.py", line 310, in __init__
+    elif len(markup) <= 256 and (
+TypeError: object of type 'NoneType' has no len()
+2024-08-04 16:44:25,139 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:44:26,135 ERROR:log_namespace.MailRead object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 123, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 109, in __get_body_of_email
+    return self.convert_into_text(text)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 41, in convert_into_text
+    soup = BeautifulSoup(content, 'lxml')
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/bs4/__init__.py", line 310, in __init__
+    elif len(markup) <= 256 and (
+TypeError: object of type 'NoneType' has no len()
+2024-08-04 16:44:49,921 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:44:51,020 ERROR:log_namespace.MailRead object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 124, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 110, in __get_body_of_email
+    return self.convert_into_text(text)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 41, in convert_into_text
+    soup = BeautifulSoup(content, 'lxml')
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/bs4/__init__.py", line 310, in __init__
+    elif len(markup) <= 256 and (
+TypeError: object of type 'NoneType' has no len()
+2024-08-04 16:49:14,115 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:49:15,047 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 122, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 95, in __get_body_of_email
+    f = open(file_name, "w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+2024-08-04 16:50:00,194 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:50:01,189 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 123, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 96, in __get_body_of_email
+    f = open(file_name, "w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+2024-08-04 16:50:33,665 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:50:34,674 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 124, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 97, in __get_body_of_email
+    f = open(file_name, "w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+2024-08-04 16:51:16,889 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:51:17,887 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 124, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 97, in __get_body_of_email
+    f = open(file_name, "w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+2024-08-04 16:51:38,398 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:51:39,339 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 124, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 97, in __get_body_of_email
+    f = open(file_name, "w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+2024-08-04 16:51:58,660 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:52:31,539 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:52:32,537 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 124, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 97, in __get_body_of_email
+    f = open(file_name, "w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+2024-08-04 16:52:49,974 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:52:50,969 ERROR:log_namespace.MailRead [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 124, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 97, in __get_body_of_email
+    f = open(file_name, "w")
+FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d.html'
+2024-08-04 16:53:12,390 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 16:54:21,336 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-04 17:00:30,241 INFO:log_namespace.MailRead Gmail Account is logged in
