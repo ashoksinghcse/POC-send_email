@@ -218,3 +218,219 @@ FileNotFoundError: [Errno 2] No such file or directory: 'emails/1911abaabfa9258d
 2024-08-04 16:53:12,390 INFO:log_namespace.MailRead Gmail Account is logged in
 2024-08-04 16:54:21,336 INFO:log_namespace.MailRead Gmail Account is logged in
 2024-08-04 17:00:30,241 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:18:40,951 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:19:08,880 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:19:43,173 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:20:41,449 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:20:52,303 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:22:15,253 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:22:57,949 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:23:22,425 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 16:24:01,652 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:33:46,040 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:34:46,958 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:35:11,838 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:36:31,199 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:36:52,608 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:37:06,320 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:37:26,802 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:38:51,587 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:39:41,458 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:39:41,476 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 32, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+2024-08-05 17:40:06,957 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:40:06,974 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 32, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+2024-08-05 17:40:29,349 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:40:29,366 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 33, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+2024-08-05 17:40:47,707 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:40:47,760 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 33, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+2024-08-05 17:41:35,835 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:41:35,850 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 33, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+2024-08-05 17:44:28,602 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:44:28,619 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 34, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''mail_id', 'from', 'to', 'created_date', 'mail_text') VALUES ('sdf', 'sdf', 'sdf' at line 1
+2024-08-05 17:46:42,457 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:46:42,519 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mail_id,from,to,created_date,mail_text VALUES ('sdf', 'sdf', 'sdf', '2024-4-11 1' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mail_id,from,to,created_date,mail_text VALUES ('sdf', 'sdf', 'sdf', '2024-4-11 1' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 35, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mail_id,from,to,created_date,mail_text VALUES ('sdf', 'sdf', 'sdf', '2024-4-11 1' at line 1
+2024-08-05 17:47:19,116 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:47:19,134 ERROR:log_namespace.MailModel 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from,to,created_date,mail_text) VALUES ('sdf', 'sdf', 'sdf', '2024-4-11 11:00', ' at line 1
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 487, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from,to,created_date,mail_text) VALUES ('sdf', 'sdf', 'sdf', '2024-4-11 11:00', ' at line 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/config/conn.py", line 35, in insert_data
+    curs.execute(query)
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 264, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/home/ashoksingh/projects/POC-send_email/venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 491, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from,to,created_date,mail_text) VALUES ('sdf', 'sdf', 'sdf', '2024-4-11 11:00', ' at line 1
+2024-08-05 17:49:40,939 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:52:27,476 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:52:28,573 ERROR:log_namespace.MailRead argument should be a bytes-like object or ASCII string, not 'NoneType'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 132, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 98, in __get_body_of_email
+    byte_code = base64.urlsafe_b64decode(data)
+  File "/usr/lib/python3.8/base64.py", line 131, in urlsafe_b64decode
+    s = _bytes_from_decode_data(s)
+  File "/usr/lib/python3.8/base64.py", line 45, in _bytes_from_decode_data
+    raise TypeError("argument should be a bytes-like object or ASCII "
+TypeError: argument should be a bytes-like object or ASCII string, not 'NoneType'
+2024-08-05 17:52:52,253 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:52:53,256 ERROR:log_namespace.MailRead argument should be a bytes-like object or ASCII string, not 'NoneType'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 132, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 98, in __get_body_of_email
+    byte_code = base64.urlsafe_b64decode(data)
+  File "/usr/lib/python3.8/base64.py", line 131, in urlsafe_b64decode
+    s = _bytes_from_decode_data(s)
+  File "/usr/lib/python3.8/base64.py", line 45, in _bytes_from_decode_data
+    raise TypeError("argument should be a bytes-like object or ASCII "
+TypeError: argument should be a bytes-like object or ASCII string, not 'NoneType'
+2024-08-05 17:53:22,063 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:54:06,705 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:54:07,805 ERROR:log_namespace.MailRead argument should be a bytes-like object or ASCII string, not 'NoneType'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 134, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 98, in __get_body_of_email
+    byte_code = base64.urlsafe_b64decode(data)
+  File "/usr/lib/python3.8/base64.py", line 131, in urlsafe_b64decode
+    s = _bytes_from_decode_data(s)
+  File "/usr/lib/python3.8/base64.py", line 45, in _bytes_from_decode_data
+    raise TypeError("argument should be a bytes-like object or ASCII "
+TypeError: argument should be a bytes-like object or ASCII string, not 'NoneType'
+2024-08-05 17:54:33,529 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:57:29,572 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:57:30,675 ERROR:log_namespace.MailRead argument should be a bytes-like object or ASCII string, not 'NoneType'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 136, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 100, in __get_body_of_email
+    byte_code = base64.urlsafe_b64decode(data)
+  File "/usr/lib/python3.8/base64.py", line 131, in urlsafe_b64decode
+    s = _bytes_from_decode_data(s)
+  File "/usr/lib/python3.8/base64.py", line 45, in _bytes_from_decode_data
+    raise TypeError("argument should be a bytes-like object or ASCII "
+TypeError: argument should be a bytes-like object or ASCII string, not 'NoneType'
+2024-08-05 17:58:07,150 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:58:40,023 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 17:59:07,871 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:00:12,287 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:00:30,522 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:00:57,042 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:01:42,405 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:02:37,498 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:03:12,419 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:05:05,577 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:07:11,117 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-08-05 18:08:12,151 INFO:log_namespace.MailRead Gmail Account is logged in

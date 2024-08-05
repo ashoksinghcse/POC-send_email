@@ -83,18 +83,30 @@ class MailRead(mailUtil,TextConverter):
 
     def __get_body_of_email(self,message):
         text = None
-
-
+        #print(message)
 
         if "payload" in message:
             payload = message.get("payload")
+
             if "parts" in payload:
+                print("sdfljsdfjk")
+
                 parts = payload.get("parts")
                 #print(parts)
-                for p in parts:
-                    body = p.get("body")
 
-                    data = body.get("data")
+                for p in parts:
+                    if "parts" in p:
+                        for in_parts in p.get("parts"):
+                            body = in_parts.get("body")
+                            data = body.get("data")
+                            byte_code = base64.urlsafe_b64decode(data)
+                            text = byte_code.decode("utf-8")
+                    else:
+                        body = p.get("body")
+                        data = body.get("data")
+
+                        byte_code = base64.urlsafe_b64decode(data)
+                        text = byte_code.decode("utf-8")
                     byte_code = base64.urlsafe_b64decode(data)
                     text = byte_code.decode("utf-8")
                     #print(text)
@@ -115,7 +127,7 @@ class MailRead(mailUtil,TextConverter):
                         file_name = f"{folder}/{message.get('id')}.html"
                         f = open(file_name,"w")
 
-            return text
+            return self.convert_into_text(text)
 
 
     def fetch_email(self):
@@ -129,7 +141,11 @@ class MailRead(mailUtil,TextConverter):
                 email_details = {}
                 m = self.service.users().messages().get(userId='me', id=msg['id'], format='full').execute()
                 headers = self.__get_header_of_email(m)
+                print(headers)
+
                 body =self.__get_body_of_email(m)
+                print(body)
+                exit()
 
                 #exit()
                 #self.__mark_email_as_read(msg)
@@ -139,13 +155,10 @@ class MailRead(mailUtil,TextConverter):
                 print(email_list)
                 exit()
                 pass
-                #self.__mark_email_as_read(msg)
-
-                pass
         except Exception as e:
             print(str(e))
             self.logger.exception(str(e))
-        pass
+
 
 
 
