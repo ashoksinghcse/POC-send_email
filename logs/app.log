@@ -434,3 +434,25 @@ TypeError: argument should be a bytes-like object or ASCII string, not 'NoneType
 2024-08-05 18:05:05,577 INFO:log_namespace.MailRead Gmail Account is logged in
 2024-08-05 18:07:11,117 INFO:log_namespace.MailRead Gmail Account is logged in
 2024-08-05 18:08:12,151 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-02 23:57:30,796 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-02 23:59:09,817 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-02 23:59:11,718 ERROR:log_namespace.MailRead argument should be a bytes-like object or ASCII string, not 'NoneType'
+Traceback (most recent call last):
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 146, in fetch_email
+    body =self.__get_body_of_email(m)
+  File "/home/ashoksingh/projects/POC-send_email/mailUtil.py", line 108, in __get_body_of_email
+    byte_code = base64.urlsafe_b64decode(data)
+  File "/usr/lib/python3.8/base64.py", line 131, in urlsafe_b64decode
+    s = _bytes_from_decode_data(s)
+  File "/usr/lib/python3.8/base64.py", line 45, in _bytes_from_decode_data
+    raise TypeError("argument should be a bytes-like object or ASCII "
+TypeError: argument should be a bytes-like object or ASCII string, not 'NoneType'
+2024-10-03 00:01:43,010 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:03:12,817 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:03:57,068 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:04:47,029 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:05:09,878 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:06:41,214 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:08:52,815 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:09:40,020 INFO:log_namespace.MailRead Gmail Account is logged in
+2024-10-03 00:10:29,072 INFO:log_namespace.MailRead Gmail Account is logged in

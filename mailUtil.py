@@ -38,17 +38,27 @@ class Logger(object):
 
 class TextConverter:
     def __clean_text(self,text):
-        text = html.unescape(text)
-        # Remove leading/trailing whitespace
-        text = text.strip()
-        # Replace multiple newlines and spaces with a single space
-        text = re.sub(r'\s+', ' ', text)
-        return text
+        try:
+            text = html.unescape(text)
+            # Remove leading/trailing whitespace
+            text = text.strip()
+            # Replace multiple newlines and spaces with a single space
+            text = re.sub(r'\s+', ' ', text)
+            return text
+        except Exception as e:
+            print(str(e))
+
+
 
     def convert_into_text(self,content):
-        soup = BeautifulSoup(content, 'lxml')
-        # Extract and print the text
-        return self.__clean_text(soup.get_text(separator=' '))
+        try:
+            soup = BeautifulSoup(content, 'lxml')
+            # Extract and print the text
+            return self.__clean_text(soup.get_text(separator=' '))
+        except Exception as e:
+            print(str(e))
+
+
 
 class MailRead(mailUtil,TextConverter):
     def __init__(self):
@@ -82,52 +92,57 @@ class MailRead(mailUtil,TextConverter):
         return headers_info
 
     def __get_body_of_email(self,message):
-        text = None
-        #print(message)
+        try:
+            text = None
 
-        if "payload" in message:
-            payload = message.get("payload")
+            # print(message)
 
-            if "parts" in payload:
-                print("sdfljsdfjk")
+            if "payload" in message:
 
-                parts = payload.get("parts")
-                #print(parts)
+                payload = message.get("payload")
 
-                for p in parts:
-                    if "parts" in p:
-                        for in_parts in p.get("parts"):
-                            body = in_parts.get("body")
+                if "parts" in payload:
+
+                    parts = payload.get("parts")
+                    # print(parts)
+
+                    for p in parts:
+                        if "parts" in p:
+                            for in_parts in p.get("parts"):
+                                body = in_parts.get("body")
+                                data = body.get("data")
+                                byte_code = base64.urlsafe_b64decode(data)
+                                text = byte_code.decode("utf-8")
+                        else:
+                            body = p.get("body")
                             data = body.get("data")
+
                             byte_code = base64.urlsafe_b64decode(data)
                             text = byte_code.decode("utf-8")
-                    else:
-                        body = p.get("body")
-                        data = body.get("data")
-
                         byte_code = base64.urlsafe_b64decode(data)
                         text = byte_code.decode("utf-8")
-                    byte_code = base64.urlsafe_b64decode(data)
-                    text = byte_code.decode("utf-8")
-                    #print(text)
-                    if self.SAVE_EMAIL_HTML:
-                        folder = os.getenv("EMAIL_FOLDER")
-                        file_name = f"{folder}/{message.get('id')}.html"
-                        f = open(file_name, "w")
-                        f.write(text)
-            elif "body" in payload:
+                        # print(text)
+                        if self.SAVE_EMAIL_HTML:
+                            folder = os.getenv("EMAIL_FOLDER")
+                            file_name = f"{folder}/{message.get('id')}.html"
+                            f = open(file_name, "w")
+                            f.write(text)
+                elif "body" in payload:
 
-                body = payload.get("body")
-                if "data" in body:
-                    data = body.get("data")
-                    byte_code = base64.urlsafe_b64decode(data)
-                    text = byte_code.decode("utf-8")
-                    if self.SAVE_EMAIL_HTML:
-                        folder = os.getenv("EMAIL_FOLDER")
-                        file_name = f"{folder}/{message.get('id')}.html"
-                        f = open(file_name,"w")
+                    body = payload.get("body")
+                    if "data" in body:
+                        data = body.get("data")
+                        byte_code = base64.urlsafe_b64decode(data)
+                        text = byte_code.decode("utf-8")
+                        if self.SAVE_EMAIL_HTML:
+                            folder = os.getenv("EMAIL_FOLDER")
+                            file_name = f"{folder}/{message.get('id')}.html"
+                            f = open(file_name, "w")
 
-            return self.convert_into_text(text)
+                return self.convert_into_text(text)
+        except Exception as e:
+            print(str(e))
+
 
 
     def fetch_email(self):
@@ -145,7 +160,7 @@ class MailRead(mailUtil,TextConverter):
 
                 body =self.__get_body_of_email(m)
                 print(body)
-                exit()
+                #exit()
 
                 #exit()
                 #self.__mark_email_as_read(msg)
@@ -153,10 +168,12 @@ class MailRead(mailUtil,TextConverter):
                 email_details["body"] = str(self.convert_into_text(body))
                 email_list.append(email_details)
                 print(email_list)
-                exit()
-                pass
+                #exit()
+                #pass
+            return  email_list
         except Exception as e:
             print(str(e))
+            raise  e
             self.logger.exception(str(e))
 
 
