@@ -6,6 +6,7 @@ import re,html
 from bs4 import BeautifulSoup
 import base64
 load_dotenv('.env')
+from utils import convert_date_from_string
 class mailUtil:
 	def __init__(self):
 		self.CLIENT_SECRET_FILE = os.getenv("CLIENT_SECRET_FILE")
@@ -82,13 +83,13 @@ class MailRead(mailUtil,TextConverter):
                 if isinstance(headers,list):
                     for hdr in headers:
                         if hdr.get("name") == 'From':
-                            headers_info["from"] = hdr.get("value")
+                            headers_info["from_email"] = hdr.get("value")
                         elif hdr.get("name") == 'To':
-                            headers_info["to"] = hdr.get("value")
+                            headers_info["to_email"] = hdr.get("value")
                         elif hdr.get("name") == 'Subject':
                             headers_info["subject"] = hdr.get("value")
                         elif hdr.get("name") == 'Date':
-                            headers_info["date"] = hdr.get("value")
+                            headers_info["sent_date"] = convert_date_from_string(hdr.get("value"))
         return headers_info
 
     def __get_body_of_email(self,message):
@@ -155,20 +156,27 @@ class MailRead(mailUtil,TextConverter):
             for msg in messages:
                 email_details = {}
                 m = self.service.users().messages().get(userId='me', id=msg['id'], format='full').execute()
+                #make the mail unread
+                #self.service.users().messages().modify(userId='me', id=msg['id'], body={'removeLabelIds': ['UNREAD']}).execute()
                 headers = self.__get_header_of_email(m)
-                print(headers)
+
+
 
                 body =self.__get_body_of_email(m)
-                print(body)
+                plaintext =str(self.convert_into_text(body))
+                headers["mail_text"] = plaintext
+
+                #print(headers)
+                #exit()
                 #exit()
 
                 #exit()
                 #self.__mark_email_as_read(msg)
-                email_details["headers"] = headers
-                email_details["body"] = str(self.convert_into_text(body))
-                email_list.append(email_details)
+
+                #email_details["body"] = str(self.convert_into_text(body))
+                email_list.append(headers)
                 print(email_list)
-                #exit()
+                exit()
                 #pass
             return  email_list
         except Exception as e:

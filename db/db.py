@@ -1,4 +1,4 @@
-import redis
+
 from sqlalchemy.ext.declarative import declarative_base
 import os
 from dotenv import load_dotenv
@@ -14,7 +14,9 @@ class Db:
 
 
     def make_connection(self):
+        print("Sdfsdf")
         if self.__conn is None:
+            print("ssssssssssss")
             try:
                 DB_USERNAME = os.getenv('USER_NAME')
                 DB_PASSWORD = os.getenv('PASSWORD')
@@ -27,6 +29,8 @@ class Db:
                     database=DB_NAME,
                     auth_plugin='mysql_native_password'
                 )
+                print("sdfsdjfksdjf")
             except Exception as e:
+                print("sdkfj")
                 print(str(e))
         return self.__conn

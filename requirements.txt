@@ -10,3 +10,4 @@ confluent-kafka
 mysql-connector
 mysql-connector-python
 PyMySQL
+SQLAlchemy

@@ -17,5 +17,6 @@ class Emails(Base):
     from_email = Column(VARCHAR(40), nullable=False, server_default=text("''"))
     to_email = Column(VARCHAR(40), nullable=False, server_default=text("''"))
     mail_text = Column(VARCHAR(500), nullable=False, server_default=text("''"))
+    subject = Column(VARCHAR(500), nullable=False, server_default=text("''"))
     sent_date = Column(TIMESTAMP, server_default=text("CURRENT_TIMESTAMP"))
 

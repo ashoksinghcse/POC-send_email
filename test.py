@@ -3,6 +3,7 @@ from  mailUtil import MailRead
 mail = MailRead()
 
 from Google import Create_Service
+from dao.email_model import Email
 import base64
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -14,6 +15,8 @@ API_NAME = 'gmail'
 API_VERSION = 'v1'
 SCOPES = ['https://mail.google.com/']
 print(mail.fetch_email())
+# emailobj = Email()
+# print(emailobj)
 exit()
 ############################################3
 # instantinate Gmail Service

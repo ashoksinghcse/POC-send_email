@@ -11,8 +11,12 @@ def convert_text_from_html(html):
 	return text
 
 def convert_date_from_string(parse_date,format = "YYYY-mm-dd"):
-	s = "2016-03-26T09:25:55.000Z"
-	f = "%Y-%m-%dT%H:%M:%S.%fZ"
-	out = datetime.strptime(s, f)
+	parse_date = parse_date.split("+")[0].replace(",","")
+	print(parse_date)
+	#exit()
+	#exit()
+	return datetime.strptime(parse_date.strip(), "%a %d %b %Y %H:%M:%S").strftime("%Y-%m-%d %H:%M:%S")
 
-	return out
+
+
+	return
