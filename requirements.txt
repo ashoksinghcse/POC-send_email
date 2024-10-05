@@ -6,3 +6,7 @@ mysql-connector==2.2.9
 mysql-connector-python==8.0.20
 PyMySQL==0.10.1
 python-dateutil
+confluent-kafka
+mysql-connector
+mysql-connector-python
+PyMySQL
