@@ -13,7 +13,6 @@ class Emails(Base):
     __tablename__ = 'emails'
 
     id = Column(INTEGER, primary_key=True)
-    mail_id = Column(VARCHAR(40), nullable=False, server_default=text("''"))
     from_email = Column(VARCHAR(40), nullable=False, server_default=text("''"))
     to_email = Column(VARCHAR(40), nullable=False, server_default=text("''"))
     mail_text = Column(VARCHAR(500), nullable=False, server_default=text("''"))

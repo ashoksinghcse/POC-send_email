@@ -5,8 +5,10 @@ import logging
 import re,html
 from bs4 import BeautifulSoup
 import base64
+from time import sleep
 load_dotenv('.env')
 from utils import convert_date_from_string
+from  publisher import Publisher
 class mailUtil:
 	def __init__(self):
 		self.CLIENT_SECRET_FILE = os.getenv("CLIENT_SECRET_FILE")
@@ -89,7 +91,7 @@ class MailRead(mailUtil,TextConverter):
                         elif hdr.get("name") == 'Subject':
                             headers_info["subject"] = hdr.get("value")
                         elif hdr.get("name") == 'Date':
-                            headers_info["sent_date"] = convert_date_from_string(hdr.get("value"))
+                            headers_info["sent_date"] = hdr.get("value")
         return headers_info
 
     def __get_body_of_email(self,message):
@@ -154,15 +156,14 @@ class MailRead(mailUtil,TextConverter):
             #print(messages)
             #iterate throught the emails
             for msg in messages:
+
+
                 email_details = {}
                 m = self.service.users().messages().get(userId='me', id=msg['id'], format='full').execute()
                 #make the mail unread
-                #self.service.users().messages().modify(userId='me', id=msg['id'], body={'removeLabelIds': ['UNREAD']}).execute()
+                self.service.users().messages().modify(userId='me', id=msg['id'], body={'removeLabelIds': ['UNREAD']}).execute()
                 headers = self.__get_header_of_email(m)
-
-
-
-                body =self.__get_body_of_email(m)
+                body = self.__get_body_of_email(m)
                 plaintext =str(self.convert_into_text(body))
                 headers["mail_text"] = plaintext
 
@@ -175,8 +176,16 @@ class MailRead(mailUtil,TextConverter):
 
                 #email_details["body"] = str(self.convert_into_text(body))
                 email_list.append(headers)
-                print(email_list)
-                exit()
+                #print(email_list)
+                topic = "json_topic"
+                publihser = Publisher(topic)
+                print("headers",headers)
+                print(publihser.send_message(headers))
+                #exit()
+
+                #Publisher()
+
+                #exit()
                 #pass
             return  email_list
         except Exception as e:
