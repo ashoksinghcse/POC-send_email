@@ -59,6 +59,7 @@ class TextConverter:
             # Extract and print the text
             return self.__clean_text(soup.get_text(separator=' '))
         except Exception as e:
+            print("error:exception")
             print(str(e))
 
 
@@ -97,8 +98,10 @@ class MailRead(mailUtil,TextConverter):
     def __get_body_of_email(self,message):
         try:
             text = None
+            f= open("mail.txt","w")
+            f.write(str(message))
 
-            # print(message)
+            #print(message)
 
             if "payload" in message:
 
@@ -111,11 +114,14 @@ class MailRead(mailUtil,TextConverter):
 
                     for p in parts:
                         if "parts" in p:
+                            print("parts existed inside parts")
                             for in_parts in p.get("parts"):
                                 body = in_parts.get("body")
                                 data = body.get("data")
                                 byte_code = base64.urlsafe_b64decode(data)
                                 text = byte_code.decode("utf-8")
+                                f= open("body.html","w")
+                                f.write(text)
                         else:
                             body = p.get("body")
                             data = body.get("data")
@@ -164,6 +170,9 @@ class MailRead(mailUtil,TextConverter):
                 self.service.users().messages().modify(userId='me', id=msg['id'], body={'removeLabelIds': ['UNREAD']}).execute()
                 headers = self.__get_header_of_email(m)
                 body = self.__get_body_of_email(m)
+
+                print("#######body")
+                print(body)
                 plaintext =str(self.convert_into_text(body))
                 headers["mail_text"] = plaintext
 
