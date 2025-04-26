@@ -1,7 +1,7 @@
 import openai
 
 # Set your OpenAI API key here
-openai.api_key = "sk-proj-zKWz5teV7Mzasug4HE45T3BlbkFJAB0oRU92Ba3Qrbgn8Hgt"
+openai.api_key = "open key"
 
 # Your prompt details
 profile_summary = """
